@@ -3,7 +3,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { loginAx, logoutAx, registerAx, verifyTknAX } from "../api/auth";
 // js-cookie para manejar la cokie que le mandamos
 import Cookie from "js-cookie";
-import { getBillsAx } from "../api/bills";
 
 // Inicializamos el contexto de autenticación
 export const AuthContext = createContext();
@@ -94,8 +93,6 @@ export const AuthProvider = ({ children }) => {
         isLoading,
         isAutenticate,
         logout,
-        getBills,
-        bills
       }}
     >
       {children}{" "}

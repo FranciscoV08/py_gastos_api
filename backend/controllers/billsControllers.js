@@ -15,7 +15,7 @@ export const getBills = async (req, res) => {
 };
 
 export const createBill = async (req, res) => {
-  const { amount, date, category } = req.body;
+  const {amount, date, category} = req.body;
   console.log(amount, date, category);
 
   // Nueva Instacia del gasto basado el billModel

@@ -12,20 +12,38 @@ export const useBills = () => {
 
   // Verificamos si el contexto existe, si no, lanzamos un error
   if (!context) {
-    throw new Error("useAuth debe ser usado dentro de un AuthProvider");
+    throw new Error("useBills debe ser usado dentro de un AuthProvider");
   }
   return context;
 };
 
 // Creamos la funcion provider
-export const billsProvider = ({ children }) => {
-    const [bills, Setbills] = useState([])
+export const BillsProvider = ({ children }) => {
+  // Nuestros gastos
+  const [bills, Setbills] = useState()
+  const [isLoadingBill, setIsLoadingBill] = useState(true)
 
-    const getBills = async () => {
-        const res = await getBillsAx();
-    
-        console.log(res)
-      }
+  const [plusBill, setPlusBill] = useState()
 
-  return <BillsContext.Provider value={{}}>{children}</BillsContext.Provider>;
+  const getBills = async () => {
+    const res = await getBillsAx();
+    Setbills(res.data.gastos)
+    setIsLoadingBill(false)
+    // console.log(bills)
+  }
+  const sumBill = () => {
+    if(bills){
+      const total = bills.map(bill => bill.amount)
+      const tototal = Object.values(total).reduce((acc, monto) => acc + monto, 0);
+      return(tototal)
+    }
+  }
+
+  return <BillsContext.Provider value={{
+    bills,
+    getBills,
+    isLoadingBill,
+    sumBill
+  }}>
+    {children}</BillsContext.Provider>;
 };

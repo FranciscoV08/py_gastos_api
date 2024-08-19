@@ -45,6 +45,7 @@ export const register = async (req, res) => {
   try {
     // hash del pasword
     const passwordHashed = await bcrypt.hash(password, 10);
+    console.log(passwordHashed)
     // Nueva instancia del userModel
     const newUser = new User({
       email,

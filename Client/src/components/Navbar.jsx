@@ -33,7 +33,7 @@ export const Navbar = () => {
 
             <div>
                 <Link to={"mimoney"} className='bg-blue-700 p-3 rounded-md mx-2'>My money</Link>
-                <Link to={"#"} className='bg-blue-700 p-3 rounded-md mx-2'>My savings for...</Link>
+                <Link to={"miobject"} className='bg-blue-700 p-3 rounded-md mx-2'>My objetive</Link>
                 <button onClick={onLogout} className='bg-red-700 p-3 rounded-md mx-2'>logout</button>
             </div>
         </div>

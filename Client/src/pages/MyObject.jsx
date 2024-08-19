@@ -1,20 +1,13 @@
 import {useForm} from 'react-hook-form'
-import { updateBillAx } from '../api/bills';
 
-export const SalaryForm = () => {
+export const MyObject = () => {
 
-  const {register, handleSubmit} = useForm()
+    const {register,handleSubmit} =useForm()
 
-  const onSubmit = async (data) => {
-    const gasto = await updateBillAx(data)
-    console.log(gasto)
-  }
-
-// amount, date, category
   return (
     <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md m-auto ">
-      <h1 className="font-bold text-xl text-center">Nuevo Gasto</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <h1 className="font-bold text-xl text-center font-mono">Nuevo Objetivo</h1>
+      <form onSubmit={handleSubmit()}>
         <input
           type="number"
           placeholder="amount"
@@ -35,5 +28,5 @@ export const SalaryForm = () => {
         <button className="p-2 rounded-md bg-blue-600">Guardar</button>
       </form>
     </div>
-  );
-};
+  )
+}
